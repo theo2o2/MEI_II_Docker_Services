@@ -37,12 +37,16 @@ services:
   crate:
     image: crate
     hostname: crate
-    container_name: create
+    container_name: crate
     environment:
       - CRATE_HEAP_SIZE=1g
     command: ["crate", "-Cnode.store.allow_mmap=false"]
     ports:
       - 4200:4200
+    volumes:
+      - ./crate/data:/data
+      - ./crate/blobs:/blobs
+      - ./crate/log:/log
     networks:
       mynet:
         ipv4_address: 10.5.0.4
