@@ -1,0 +1,72 @@
+version: "3.8"
+services:
+
+  nodered:
+    image: nodered/node-red
+    container_name: node-red
+    networks:
+      mynet:
+        ipv4_address: 10.5.0.2
+    environment:
+    - SERVICE_NAME=node-red
+    ports:
+    - "1880:1880"
+    volumes:
+    - ./node-red/data:/data
+    links:
+    - mosquitto
+
+  mosquitto:
+    image: eclipse-mosquitto
+    hostname: mosquitto
+    container_name: mosquitto
+    expose:
+      - "1883"
+      - "9001"
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./config/:/mosquitto/config/
+      - ./log/:/mosquitto/log/
+      - data:/mosquitto/data/
+    networks:
+      mynet:
+        ipv4_address: 10.5.0.3
+
+  crate:
+    image: crate
+    hostname: crate
+    container_name: create
+    environment:
+      - CRATE_HEAP_SIZE=1g
+    command: ["crate", "-Cnode.store.allow_mmap=false"]
+    ports:
+      - 4200:4200
+    networks:
+      mynet:
+        ipv4_address: 10.5.0.4
+
+  grafana:
+    image: grafana/grafana
+    hostname: grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    networks:
+      mynet:
+        ipv4_address: 10.5.0.5
+
+networks:
+  mynet:
+      # use the bridge driver, but enable IPv6
+      driver: bridge
+      driver_opts:
+          com.docker.network.enable_ipv6: "true"
+      ipam:
+        config:
+          - subnet: 10.5.0.0/24
+            gateway: 10.5.0.1
+          
+volumes:
+  data: ~
