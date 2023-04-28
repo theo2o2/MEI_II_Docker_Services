@@ -62,7 +62,7 @@ services:
         ipv4_address: 10.5.0.5
 
   postgres-odoo:
-    image: postgres:latest
+    image: postgres:14
     restart: always
     ports:
       - 5444:5432
