@@ -52,7 +52,7 @@ services:
         ipv4_address: 10.5.0.4
 
   grafana:
-    image: grafana/grafana-oss
+    image: grafana/grafana
     hostname: grafana
     container_name: grafana
     ports:
@@ -62,15 +62,16 @@ services:
         ipv4_address: 10.5.0.5
 
   postgres-odoo:
-    image: postgres:14
+    image: postgres:10
     restart: always
     ports:
       - 5444:5432
     environment:
       - POSTGRES_USER=odoo
       - POSTGRES_PASSWORD=odoo
-    volumes:
-      - ./pg-odoo:/var/lib/postgresql/data
+      - POSTGRES_DB=postgres
+    # volumes:
+    #   - ./pg-odoo:/var/lib/postgresql/data
     networks:
       mynet:
         ipv4_address: 10.5.0.6
@@ -79,14 +80,15 @@ services:
     image: odoo:14.0
     ports:
       - 8069:8069
+      - 8181:8080
     environment: 
       -  HOST=postgres-odoo
       -  PORT=5432
       -  USER=odoo
       -  PASSWORD=odoo
-    volumes:
-      - ./odoo/extra-addons:/mnt/extra-addons
-      - ./odoo/data:/var/lib/odoo
+    # volumes:
+    #   - ./odoo/extra-addons:/mnt/extra-addons
+    #   - ./odoo/data:/var/lib/odoo
     depends_on:
       - postgres-odoo
     networks:
