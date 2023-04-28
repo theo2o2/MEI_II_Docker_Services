@@ -1,2 +1,8 @@
 
 node-red/data/*
+crate/data/*
+log/*
+odoo/*
+postgres-odoo/*
+mosquitto/log/*
+mosquitto/data/*
