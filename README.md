@@ -1,4 +1,4 @@
-<span style="color:red; font-size:30px" >! Windows Only !</span>
+# ! Windows Only !
 
 # Docker Services for iIndustry
 - Node red
