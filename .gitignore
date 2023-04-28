@@ -2,4 +2,6 @@
 node-red/data/*
 crate/data/*
 log/*
-pg-odoo/*
+odoo/*
+postgres-odoo/*
+mosquitto/log/mosquitto.log

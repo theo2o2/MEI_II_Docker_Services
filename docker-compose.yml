@@ -27,9 +27,9 @@ services:
       - "1883:1883"
       - "9001:9001"
     volumes:
-      - ./config/:/mosquitto/config/
-      - ./log/:/mosquitto/log/
-      - data:/mosquitto/data/
+      - ./mosquitto/config/:/mosquitto/config/
+      - ./mosquitto/log/:/mosquitto/log/
+      - ./mosquitto/data:/mosquitto/data/
     networks:
       mynet:
         ipv4_address: 10.5.0.3
@@ -72,8 +72,8 @@ services:
       - POSTGRES_USER=odoo
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_DB=postgres
-    # volumes:
-    #   - ./pg-odoo:/var/lib/postgresql/data
+    volumes:
+      - ./postgres-odoo/data:/var/lib/postgresql/data
     networks:
       mynet:
         ipv4_address: 10.5.0.6
@@ -90,9 +90,9 @@ services:
       -  PORT=5432
       -  USER=odoo
       -  PASSWORD=odoo
-    # volumes:
-    #   - ./odoo/extra-addons:/mnt/extra-addons
-    #   - ./odoo/data:/var/lib/odoo
+    volumes:
+      - ./odoo/extra-addons:/mnt/extra-addons
+      - ./odoo/data:/var/lib/odoo
     depends_on:
       - postgres-odoo
     networks:
@@ -109,6 +109,3 @@ networks:
         config:
           - subnet: 10.5.0.0/24
             gateway: 10.5.0.1
-          
-volumes:
-  data: ~
