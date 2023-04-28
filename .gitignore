@@ -2,3 +2,4 @@
 node-red/data/*
 crate/data/*
 log/*
+pg-odoo/*

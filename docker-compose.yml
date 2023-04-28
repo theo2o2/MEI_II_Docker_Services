@@ -70,7 +70,7 @@ services:
       - POSTGRES_USER=odoo
       - POSTGRES_PASSWORD=odoo
     volumes:
-      - pg-odoo:/var/lib/postgresql/data
+      - ./pg-odoo:/var/lib/postgresql/data
     networks:
       mynet:
         ipv4_address: 10.5.0.6
