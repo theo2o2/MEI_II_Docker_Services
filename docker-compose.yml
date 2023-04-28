@@ -63,6 +63,8 @@ services:
 
   postgres-odoo:
     image: postgres:10
+    hostname: postgres-odoo
+    container_name: postgres-odoo
     restart: always
     ports:
       - 5444:5432
@@ -78,6 +80,8 @@ services:
 
   odoo:
     image: odoo:14.0
+    hostname: odoo
+    container_name: odoo
     ports:
       - 8069:8069
       - 8181:8080
@@ -108,4 +112,3 @@ networks:
           
 volumes:
   data: ~
-  pg-odoo: ~
