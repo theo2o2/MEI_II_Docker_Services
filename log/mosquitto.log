@@ -1,0 +1,38 @@
+1680291130: mosquitto version 2.0.15 starting
+1680291130: Config loaded from /mosquitto/config/mosquitto.conf.
+1680291130: Opening ipv4 listen socket on port 1883.
+1680291130: Opening ipv6 listen socket on port 1883.
+1680291130: mosquitto version 2.0.15 running
+1680291268: New connection from 10.5.0.1:38956 on port 1883.
+1680291268: Client <unknown> disconnected due to malformed packet.
+1680291268: New connection from 10.5.0.1:38962 on port 1883.
+1680291268: Client <unknown> disconnected due to malformed packet.
+1680291268: New connection from 10.5.0.1:38974 on port 1883.
+1680291268: Client <unknown> disconnected due to malformed packet.
+1680291268: New connection from 10.5.0.1:38982 on port 1883.
+1680291268: Client <unknown> disconnected due to malformed packet.
+1680291268: New connection from 10.5.0.1:38998 on port 1883.
+1680291268: Client <unknown> disconnected due to malformed packet.
+1680291268: New connection from 10.5.0.1:39014 on port 1883.
+1680291268: Client <unknown> disconnected due to malformed packet.
+1680291268: New connection from 10.5.0.1:39018 on port 1883.
+1680291268: Client <unknown> disconnected due to malformed packet.
+1680291268: New connection from 10.5.0.1:39030 on port 1883.
+1680291268: Client <unknown> disconnected due to malformed packet.
+1680291268: New connection from 10.5.0.1:39032 on port 1883.
+1680291268: Client <unknown> disconnected due to malformed packet.
+1680291268: New connection from 10.5.0.1:39034 on port 1883.
+1680291268: Client <unknown> disconnected due to malformed packet.
+1680292931: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1680294732: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1680295916: mosquitto version 2.0.15 terminating
+1680295916: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1681502834: mosquitto version 2.0.15 starting
+1681502834: Config loaded from /mosquitto/config/mosquitto.conf.
+1681502834: Opening ipv4 listen socket on port 1883.
+1681502834: Opening ipv6 listen socket on port 1883.
+1681502834: mosquitto version 2.0.15 running
+1681504635: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1681506567: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1681674198: mosquitto version 2.0.15 terminating
+1681674198: Saving in-memory database to /mosquitto/data//mosquitto.db.
