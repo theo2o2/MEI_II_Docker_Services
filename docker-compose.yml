@@ -61,6 +61,38 @@ services:
       mynet:
         ipv4_address: 10.5.0.5
 
+  postgres-odoo:
+    image: postgres:latest
+    restart: always
+    ports:
+      - 5444:5432
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+    volumes:
+      - pg-odoo:/var/lib/postgresql/data
+    networks:
+      mynet:
+        ipv4_address: 10.5.0.6
+
+  odoo:
+    image: odoo:14.0
+    ports:
+      - 8069:8069
+    environment: 
+      -  HOST=postgres-odoo
+      -  PORT=5432
+      -  USER=odoo
+      -  PASSWORD=odoo
+    volumes:
+      - ./odoo/extra-addons:/mnt/extra-addons
+      - ./odoo/data:/var/lib/odoo
+    depends_on:
+      - postgres-odoo
+    networks:
+      mynet:
+        ipv4_address: 10.5.0.7
+
 networks:
   mynet:
       # use the bridge driver, but enable IPv6
@@ -74,3 +106,4 @@ networks:
           
 volumes:
   data: ~
+  pg-odoo: ~
